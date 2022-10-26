@@ -1,52 +1,76 @@
 // provisório
-body {
-    padding: 100px;
+// body {
+//     padding: 100px;
+// }
+
+.comments-section {
+    margin: 50px auto;
+    width: 90%;
+    max-width: 700px;
 }
 
 .comment {
     display: flex;
     align-items: flex-start;
-    gap: 1em;
-    padding: 16px;
+    gap: 1.15em;
+    padding: 2rem;
     background-color: var(--white);
     border-radius: 10px;
-}
 
-.comment__content__info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    .comment__content {
 
-.comment__profile {
-    display: flex;
-    gap: 1em;
-    align-items: center;
-}
+        .comment__content__info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+    
+            .comment__profile {
+                display: flex;
+                gap: 1em;
+                align-items: center;
 
-.comment_content__text {
-    margin: 1em 0;
-}
+                .comment__profile__img {
+                    width: 35px;
+                }
 
-.comment__profile__img {
-    width: 35px;
-}
+                .comment__profile__name {
+                    color: var(--dark-blue);
+                    font-weight: bold;
+                }
+            }
 
-.comment__rate {
-    background-color: var(--light-grayish-blue);
-    padding: 0.5em 0.75em;
-    border-radius: 8px;
-}
+            .comment__reply-btn {
+                background: none;
+                border: none;
+                color: var(--moderate-blue);
+                font-weight: bold;
+                font-size: 1.6rem;
+            }
+        }
+    
+        .comment__content__text {
+            margin-top: 0.8em;
+        }
+    }
+    .comment__rate {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+        background-color: var(--light-gray);
+        padding: 0.4em;
+        border-radius: 8px;
 
-.comment__rate__value {
-    font-weight: bold;
-    color: var(--moderate-blue);
-}
+        & > button {
+            background: none;
+            border: none;
+            font-weight: bold;
+            color: var(--grayish-blue);
+        }
 
-.comment__reply-btn {
-    background: none;
-    border: none;
-    color: blue;
-    font-weight: bold;
-    font-size: 1.8rem;
+        .comment__rate__value {
+            font-weight: bold;
+            color: var(--moderate-blue);
+        }
+    }
 }
