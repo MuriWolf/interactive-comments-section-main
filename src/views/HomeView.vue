@@ -1,0 +1,11 @@
+<template>
+  <div class="home">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, aliquam cum consequatur mollitia adipisci quisquam, natus vero ad numquam nostrum odit ea voluptatum. Totam illum ad rem modi iusto, sequi laboriosam ex mollitia nam magnam unde? Vel soluta, quam vero adipisci libero voluptates nostrum ab architecto sit dolorem doloremque ut iure velit rerum vitae at sapiente iusto! Tempore atque facere cum, reprehenderit ad nobis inventore voluptate commodi placeat qui provident voluptatem quasi fugiat quaerat sequi eaque. Temporibus dolores voluptatem officia quis cupiditate fugiat doloremque autem libero eos consequuntur quasi deserunt, aut tempore laborum, provident quibusdam incidunt perferendis officiis in doloribus?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, aliquam cum consequatur mollitia adipisci quisquam, natus vero ad numquam nostrum odit ea voluptatum. Totam illum ad rem modi iusto, sequi laboriosam ex mollitia nam magnam unde? Vel soluta, quam vero adipisci libero voluptates nostrum ab architecto sit dolorem doloremque ut iure velit rerum vitae at sapiente iusto! Tempore atque facere cum, reprehenderit ad nobis inventore voluptate commodi placeat qui provident voluptatem quasi fugiat quaerat sequi eaque. Temporibus dolores voluptatem officia quis cupiditate fugiat doloremque autem libero eos consequuntur quasi deserunt, aut tempore laborum, provident quibusdam incidunt perferendis officiis in doloribus?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, aliquam cum consequatur mollitia adipisci quisquam, natus vero ad numquam nostrum odit ea voluptatum. Totam illum ad rem modi iusto, sequi laboriosam ex mollitia nam magnam unde? Vel soluta, quam vero adipisci libero voluptates nostrum ab architecto sit dolorem doloremque ut iure velit rerum vitae at sapiente iusto! Tempore atque facere cum, reprehenderit ad nobis inventore voluptate commodi placeat qui provident voluptatem quasi fugiat quaerat sequi eaque. Temporibus dolores voluptatem officia quis cupiditate fugiat doloremque autem libero eos consequuntur quasi deserunt, aut tempore laborum, provident quibusdam incidunt perferendis officiis in doloribus?</p>
+  </div>
+</template>
+
+<script lang="ts">
+
+</script>

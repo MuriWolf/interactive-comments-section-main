@@ -1,0 +1,52 @@
+// provisório
+body {
+    padding: 100px;
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 1em;
+    padding: 16px;
+    background-color: var(--white);
+    border-radius: 10px;
+}
+
+.comment__content__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment__profile {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.comment_content__text {
+    margin: 1em 0;
+}
+
+.comment__profile__img {
+    width: 35px;
+}
+
+.comment__rate {
+    background-color: var(--light-grayish-blue);
+    padding: 0.5em 0.75em;
+    border-radius: 8px;
+}
+
+.comment__rate__value {
+    font-weight: bold;
+    color: var(--moderate-blue);
+}
+
+.comment__reply-btn {
+    background: none;
+    border: none;
+    color: blue;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
