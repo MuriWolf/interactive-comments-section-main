@@ -1,15 +1,17 @@
 <template>
   <div class="comments-section">
     <comment-component/>
+    <add-comment/>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import CommentComponent from '@/components/CommentComponent.vue'
+import { defineComponent } from 'vue';
+import CommentComponent from '@/components/CommentComponent.vue';
+import addComment from '@/components/addComment.vue';
 
 export default defineComponent({
-    components: { CommentComponent },
+    components: { CommentComponent, addComment },
     setup() {
         return {}
     },
