@@ -1,10 +1,4 @@
 <template>
-  <!-- <nav>
-    <router-link to="/">Home</router-link> |
-  </nav>
-  <router-view/> -->
-
-
   <comments-component/>
 </template>
 
@@ -15,7 +9,9 @@ import CommentsComponent from '@/components/CommentsComponent.vue'
 export default defineComponent({
   components: { CommentsComponent },
   setup() {
-    return {}
+    return {
+      
+    }
   },
 })
 </script>

@@ -97,18 +97,30 @@ button {
 }
 
 .comments-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
   margin: 50px auto;
   width: 90%;
   max-width: 700px;
 }
 
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1em;
+}
+
 .comment {
   display: flex;
+  position: relative;
   align-items: flex-start;
   gap: 1.15em;
   padding: 2rem;
   background-color: var(--white);
   border-radius: 10px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.05);
 }
 .comment .comment__content .comment__content__info {
   display: flex;
@@ -128,11 +140,18 @@ button {
   font-weight: bold;
 }
 .comment .comment__content .comment__content__info .comment__reply-btn {
+  position: absolute;
+  right: 2rem;
   background: none;
   border: none;
   color: var(--moderate-blue);
   font-weight: bold;
   font-size: 1.6rem;
+}
+@media (max-width: 600px) {
+  .comment .comment__content .comment__content__info .comment__reply-btn {
+    bottom: 2.5rem;
+  }
 }
 .comment .comment__content .comment__content__text {
   margin-top: 0.8em;
@@ -155,4 +174,38 @@ button {
 .comment .comment__rate .comment__rate__value {
   font-weight: bold;
   color: var(--moderate-blue);
+}
+@media (max-width: 600px) {
+  .comment .comment__rate {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 600px) {
+  .comment {
+    flex-direction: column-reverse;
+  }
+}
+.reply-comments {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  position: relative;
+  align-self: flex-end;
+}
+.reply-comments::before {
+  position: absolute;
+  left: -6%;
+  top: 0;
+  content: "";
+  width: 3px;
+  height: 100%;
+  background-color: var(--light-gray);
+}
+
+@media (max-width: 600px) {
+  .reply-comments {
+    width: 94%;
+  }
 }/*# sourceMappingURL=main.css.map */

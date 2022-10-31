@@ -1,19 +1,31 @@
+@use "../utilities/breakpoints" as bp;
+
 .comments-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     margin: 50px auto;
     width: 90%;
     max-width: 700px;
 }
 
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
+}
+
 .comment {
     display: flex;
+    position: relative;
     align-items: flex-start;
     gap: 1.15em;
     padding: 2rem;
     background-color: var(--white);
     border-radius: 10px;
-
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.05);
     .comment__content {
-
         .comment__content__info {
             display: flex;
             justify-content: space-between;
@@ -35,17 +47,24 @@
             }
 
             .comment__reply-btn {
+                position: absolute;
+                right: 2rem;
                 background: none;
                 border: none;
                 color: var(--moderate-blue);
                 font-weight: bold;
                 font-size: 1.6rem;
             }
+            @include bp.for-size(medium) {
+                .comment__reply-btn {
+                    bottom: 2.5rem;
+                }
+            }
         }
     
         .comment__content__text {
             margin-top: 0.8em;
-        }
+        }   
     }
     .comment__rate {
         display: flex;
@@ -67,5 +86,39 @@
             font-weight: bold;
             color: var(--moderate-blue);
         }
+    }
+    @include bp.for-size(medium) {
+        .comment__rate {
+            flex-direction: row;
+        }           
+    }
+}
+@include bp.for-size(medium) {
+    .comment {
+        flex-direction: column-reverse;
+    }           
+}
+
+.reply-comments {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    position: relative;
+    align-self: flex-end;
+    &::before {
+        position: absolute;
+        left: -6%;
+        top: 0;
+        content: "";
+        width: 3px;
+        height: 100%;
+        background-color: var(--light-gray);
+    }
+}
+
+@include bp.for-size(medium) {
+    .reply-comments {
+        width: 94%;
     }
 }
