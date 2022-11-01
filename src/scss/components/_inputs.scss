@@ -1,7 +1,19 @@
 .input {
-    all: unset;
     display: block;
+    font-family: unset;
+    color: var(--dark-blue);
+    font-size: unset;
     border: 1px solid var(--light-gray);
     border-radius: 8px;
-    height: 100%;
+    padding: 0.5em;
+    resize: none;
+
+    &::placeholder {
+        position: absolute;
+        top: 0.5em;
+    }
+
+    &:focus {
+        outline: 1px solid var(--moderate-blue);
+    }
 }

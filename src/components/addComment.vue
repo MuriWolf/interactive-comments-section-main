@@ -1,8 +1,8 @@
 <template>
   <div class="add-comment">
-    <img class="comment__profile__img" src="../assets/avatars/image-amyrobson.png" alt="">
-    <input type="text" class="add-comment-input input">
-    <button class="btn btn--blue ">send</button>
+    <img class="comment__profile__img add-comment__item" src="../assets/avatars/image-amyrobson.png" alt="">
+    <textarea class="input add-comment__textarea add-comment__item" rows="4" placeholder="Add a comment..." ></textarea>
+    <button class="btn btn--blue add-comment__item">send</button>
   </div>
 </template>
 

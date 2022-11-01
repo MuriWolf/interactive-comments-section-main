@@ -38,6 +38,10 @@
 
                 .comment__profile__img {
                     width: 35px;
+
+                    & > img {
+                        width: 100%;
+                    }
                 }
 
                 .comment__profile__name {
@@ -54,6 +58,9 @@
                 color: var(--moderate-blue);
                 font-weight: bold;
                 font-size: 1.6rem;
+                &:hover {
+                    opacity: 0.5;
+                }
             }
             @include bp.for-size(medium) {
                 .comment__reply-btn {

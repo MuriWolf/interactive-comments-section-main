@@ -1,8 +1,33 @@
+@use "../../utilities/breakpoints" as bp;
+
+
 .add-comment {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1.15em;
     padding: 2rem;
     background-color: var(--white);
     border-radius: 10px;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.05);
 }
+
+.add-comment__textarea {
+    flex: 1;
+}
+
+@include bp.for-size(medium) {
+    .add-comment {
+        justify-content: space-between;
+        align-items: center;
+    }
+    .add-comment__textarea {
+        order: -1;
+        flex: 1 1 100%;
+    }
+}
+
+.comment__profile__img {
+    width: 35px;
+}
+

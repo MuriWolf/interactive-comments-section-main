@@ -97,23 +97,45 @@ button {
 }
 
 .input {
-  all: unset;
   display: block;
+  font-family: unset;
+  color: var(--dark-blue);
+  font-size: unset;
   border: 1px solid var(--light-gray);
   border-radius: 8px;
-  height: 100%;
+  padding: 0.5em;
+  resize: none;
+}
+.input::-moz-placeholder {
+  position: absolute;
+  top: 0.5em;
+}
+.input:-ms-input-placeholder {
+  position: absolute;
+  top: 0.5em;
+}
+.input::placeholder {
+  position: absolute;
+  top: 0.5em;
+}
+.input:focus {
+  outline: 1px solid var(--moderate-blue);
 }
 
 .btn {
   all: unset;
-  padding: 0.75em 1.5em;
+  padding: 0.9em 1.65em;
   border-radius: 8px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .btn--blue {
   color: var(--white);
   background-color: var(--moderate-blue);
+}
+.btn--blue:hover {
+  opacity: 0.5;
 }
 
 .comments-section {
@@ -155,6 +177,9 @@ button {
 .comment .comment__content .comment__content__info .comment__profile .comment__profile__img {
   width: 35px;
 }
+.comment .comment__content .comment__content__info .comment__profile .comment__profile__img > img {
+  width: 100%;
+}
 .comment .comment__content .comment__content__info .comment__profile .comment__profile__name {
   color: var(--dark-blue);
   font-weight: bold;
@@ -167,6 +192,9 @@ button {
   color: var(--moderate-blue);
   font-weight: bold;
   font-size: 1.6rem;
+}
+.comment .comment__content .comment__content__info .comment__reply-btn:hover {
+  opacity: 0.5;
 }
 @media (max-width: 600px) {
   .comment .comment__content .comment__content__info .comment__reply-btn {
@@ -231,9 +259,29 @@ button {
 }
 .add-comment {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.15em;
   padding: 2rem;
   background-color: var(--white);
   border-radius: 10px;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.add-comment__textarea {
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .add-comment {
+    justify-content: space-between;
+    align-items: center;
+  }
+  .add-comment__textarea {
+    order: -1;
+    flex: 1 1 100%;
+  }
+}
+.comment__profile__img {
+  width: 35px;
 }/*# sourceMappingURL=main.css.map */
