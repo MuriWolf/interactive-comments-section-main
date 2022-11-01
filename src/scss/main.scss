@@ -5,5 +5,7 @@
 @use "utilities/variables";
 @use "utilities/breakpoints";
 
+@use "components/inputs"; 
+@use "components/buttons"; 
 @use "components/comment/comment"; 
 @use "components/comment/addComment";

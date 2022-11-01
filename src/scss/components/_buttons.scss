@@ -1,0 +1,12 @@
+.btn {
+    all: unset;
+    padding: 0.75em 1.5em;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+.btn--blue {
+    color: var(--white);
+    background-color: var(--moderate-blue);
+}
+
