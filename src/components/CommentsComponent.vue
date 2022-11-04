@@ -1,20 +1,29 @@
 <template>
-  <div class="comments-section">
-    <comment-component/>
+  <div v-for="comment in comments" :key="comment.id" class="comments-section">
+    <comment-component :comment="comment"/>
     <add-comment/>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import CommentComponent from '@/components/CommentComponent.vue';
 import addComment from '@/components/addComment.vue';
+import CommentType from '@/types/Comment'
+import User from '@/types/User'
 
 export default defineComponent({
-    components: { CommentComponent, addComment },
-    setup() {
-        return {}
+  props: {
+    comments: {
+        required: true,
+        type: Array as PropType<CommentType[]>,
     },
+    currentUser: {
+        required: true,
+        type: Object as PropType<User>,
+    },
+},
+    components: { CommentComponent, addComment },
 })
 </script>
 

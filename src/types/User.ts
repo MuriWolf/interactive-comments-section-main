@@ -4,8 +4,8 @@ interface User {
 }
 
 interface Image {
-    img1: string;
-    img2: string;
+    png: string;
+    webk: string;
 }
 
 export default User;

@@ -16,7 +16,7 @@
             <button class="comment__reply-btn"><img src="../assets/icon-reply.svg" alt=""> Reply</button>
           </div>
           <div class="comment__content__text">
-            <p>Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.</p>
+            <p v-if="comment">{{ comment.content }}</p>
           </div>
         </div>
       </div>
@@ -27,9 +27,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import CommentType from '@/types/Comment'
+import { defineComponent, PropType } from 'vue'
 
 export default defineComponent({
+  props: {
+    comment: {
+        required: true,
+        type: Object as PropType<CommentType>,
+    },
+},
     setup() {
         return {}
     },

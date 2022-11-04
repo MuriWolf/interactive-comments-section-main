@@ -1,9 +1,6 @@
 <template>
-  <div v-for="comment in comments" :key="comment.id">
-    <p>{{comment.content}}</p>
-  </div>
-  <div> {{ user }}</div>
-  <comments-component/>
+
+  <comments-component v-if="comments && user" :comments="comments" :currentUser="user"/>
 </template>
 
 <script lang="ts">
@@ -21,14 +18,10 @@ export default defineComponent({
     onMounted(() => {
       getData<CommentType[]>("http://localhost:3000/comments").then(data => {
         comments.value = data
-        console.log(data);
       })
-
       getData<User>("http://localhost:3000/currentUser").then(data => {
         user.value = data
-        console.log(user.value.username);
       })
-
     })
     return { comments, user }
 }
