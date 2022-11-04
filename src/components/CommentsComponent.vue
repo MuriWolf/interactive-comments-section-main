@@ -1,8 +1,8 @@
 <template>
   <div v-for="comment in comments" :key="comment.id" class="comments-section">
     <comment-component :comment="comment"/>
-    <add-comment/>
   </div>
+  <add-comment/>
 </template>
 
 <script lang="ts">

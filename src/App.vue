@@ -1,6 +1,7 @@
 <template>
-
-  <comments-component v-if="comments && user" :comments="comments" :currentUser="user"/>
+  <main class="container">
+    <comments-component v-if="comments && user" :comments="comments" :currentUser="user"/>
+  </main>
 </template>
 
 <script lang="ts">
