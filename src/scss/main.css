@@ -97,6 +97,9 @@ button {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
   margin: 50px auto;
   width: 90%;
   max-width: 700px;
@@ -147,7 +150,6 @@ button {
 .comments-section {
   display: flex;
   flex-direction: column;
-  gap: 1em;
 }
 
 .comment-container {

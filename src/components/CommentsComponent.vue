@@ -1,8 +1,10 @@
 <template>
-  <div v-for="comment in comments" :key="comment.id" class="comments-section">
-    <comment-component :comment="comment"/>
+  <div class="comments-section">
+    <div v-for="comment in comments" :key="comment.id" class="comment-container">
+      <comment-component :comment="comment"/>
+    </div>
   </div>
-  <add-comment/>
+  <add-comment :currentUser="currentUser"/>
 </template>
 
 <script lang="ts">
