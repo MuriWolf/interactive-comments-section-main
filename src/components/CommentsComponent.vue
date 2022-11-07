@@ -1,7 +1,10 @@
 <template>
   <div class="comments-section">
     <div v-for="comment in comments" :key="comment.id" class="comment-container">
-      <comment-component :comment="comment"/>
+      <comment-component :comment="comment" :currentUser="currentUser" @increase-score="comment.score++" @decrease-score="comment.score--"/>
+    </div>
+    <div v-for="comment in comments" :key="comment.id" class="comment-container">
+      <comment-component :comment="comment" :currentUser="currentUser" @increase-score="comment.score++" @decrease-score="comment.score--"/>
     </div>
   </div>
   <add-comment :currentUser="currentUser"/>
@@ -10,7 +13,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import CommentComponent from '@/components/CommentComponent.vue';
-import addComment from '@/components/addComment.vue';
+import addComment from '@/components/AddComment.vue';
 import CommentType from '@/types/Comment'
 import User from '@/types/User'
 

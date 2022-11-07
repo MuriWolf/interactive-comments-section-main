@@ -105,6 +105,22 @@ button {
   max-width: 700px;
 }
 
+.clr--red {
+  color: var(--soft-red);
+}
+
+.clr--blue {
+  color: var(--moderate-blue);
+}
+
+.font-sz--16 {
+  font-size: 1.6rem;
+}
+
+.font-wt--500 {
+  font-weight: 500;
+}
+
 .input {
   display: block;
   font-family: unset;
@@ -131,8 +147,14 @@ button {
   outline: 1px solid var(--moderate-blue);
 }
 
+.btn-reset {
+  background: none;
+  border: none;
+}
+
 .btn {
-  all: unset;
+  background: none;
+  border: none;
   padding: 0.9em 1.65em;
   border-radius: 8px;
   text-transform: uppercase;
@@ -156,7 +178,8 @@ button {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 1em;
+  gap: 0;
+  margin: 0;
 }
 
 .comment {
@@ -188,6 +211,10 @@ button {
 .comment .comment__content .comment__content__info .comment__profile .comment__profile__name {
   color: var(--dark-blue);
   font-weight: bold;
+}
+.comment .comment__content .comment__content__info .comment__controls {
+  display: flex;
+  gap: 0.45em;
 }
 .comment .comment__content .comment__content__info .comment__reply-btn {
   position: absolute;
@@ -243,6 +270,7 @@ button {
   width: 90%;
   display: flex;
   flex-direction: column;
+  margin-top: 1em;
   gap: 1em;
   position: relative;
   align-self: flex-end;

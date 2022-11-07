@@ -10,7 +10,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 1em;
+    gap: 0;
+    margin: 0;
 }
 
 .comment {
@@ -45,6 +46,12 @@
                     color: var(--dark-blue);
                     font-weight: bold;
                 }
+
+            }
+
+            .comment__controls {
+                display: flex;
+                gap: 0.45em;
             }
 
             .comment__reply-btn {
@@ -107,6 +114,7 @@
     width: 90%;
     display: flex;
     flex-direction: column;
+    margin-top: 1em;
     gap: 1em;
     position: relative;
     align-self: flex-end;

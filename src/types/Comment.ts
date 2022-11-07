@@ -1,12 +1,12 @@
 import User from "@/types/User"
 
 type CommentType = {
-    content: string,
-    created: string,
     id: number,
-    replies: CommentType[],
     user: User,
+    content: string,
+    createdAt: string,
     score: number
+    replies: CommentType[],
 }
 
 

@@ -10,7 +10,6 @@ import CommentsComponent from '@/components/CommentsComponent.vue'
 import CommentType from "@/types/Comment"
 import User from "@/types/User"
 import getData from "@/modules/getData";
-
 export default defineComponent({
   components: { CommentsComponent },
   setup() {
@@ -24,9 +23,9 @@ export default defineComponent({
         user.value = data
       })
     })
-    return { comments, user }
-}
-  })
+    return {comments, user }
+  }
+})
 </script>
 
 
