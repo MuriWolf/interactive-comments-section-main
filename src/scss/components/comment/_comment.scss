@@ -3,15 +3,14 @@
 .comments-section {
     display: flex;
     flex-direction: column;
-    // gap: 1em;
+    gap: 1em;
 }
 
 .comment-container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 0;
-    margin: 0;
+    // gap: 1em;
 }
 
 .comment {
@@ -50,8 +49,20 @@
             }
 
             .comment__controls {
+                position: absolute;
+                right: 2rem;
                 display: flex;
                 gap: 0.45em;
+
+                & > button:hover {
+                    opacity: 0.5;
+                }
+            }
+
+            @include bp.for-size(medium) {
+                .comment__controls {
+                    bottom: 2.5rem;
+                }
             }
 
             .comment__reply-btn {
@@ -114,7 +125,7 @@
     width: 90%;
     display: flex;
     flex-direction: column;
-    margin-top: 1em;
+    // margin-top: 1em;
     gap: 1em;
     position: relative;
     align-self: flex-end;

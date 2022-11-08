@@ -23,7 +23,7 @@ export default defineComponent({
         user.value = data
       })
     })
-    return {comments, user }
+    return { comments, user }
   }
 })
 </script>

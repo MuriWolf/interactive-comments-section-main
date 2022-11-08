@@ -13,7 +13,7 @@
           <p>{{ comment.createdAt }}</p>
         </div>
         <button v-if="comment.user.username !== currentUser.username" class="comment__reply-btn"><img src="../assets/icon-reply.svg" alt=""> Reply</button>
-        <div v-else class="comment__controls comment__reply-btn">
+        <div v-else class="comment__controls ">
           <button class="btn-reset clr--red font-sz--16 font-wt--500"><img src="@/assets/icon-delete.svg" alt=""> Delete</button>
           <button class="btn-reset clr--blue font-sz--16 font-wt--500"><img src="@/assets/icon-edit.svg" alt=""> Edit</button>
         </div>
@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div v-if="comment.replies" class="reply-comments">
+  <div v-if="comment.replies" class="reply-comments" :class="{ 'margin-top--1em': comment.replies.length != 0 }">
     <comment-component 
       v-for="reply in comment.replies"
       :currentUser="currentUser"
@@ -39,6 +39,7 @@ import CommentType from '@/types/Comment'
 import User from '@/types/User'
 import { defineComponent, PropType } from 'vue'
 
+
 export default defineComponent({
   emits: ['increaseScore', 'decreaseScore'],
   props: {
@@ -53,3 +54,4 @@ export default defineComponent({
   },
 })
 </script>
+
