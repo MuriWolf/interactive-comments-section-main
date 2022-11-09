@@ -65,8 +65,36 @@
       ]
     },
     {
+      "id": 3,
+      "content": "asdasdsa",
+      "createdAt": "Right now",
+      "score": 0,
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      },
+      "replies": []
+    },
+    {
       "id": 6,
-      "content": "het",
+      "content": "asasdasdsadasdsadashhhh",
+      "createdAt": "Right now",
+      "score": 0,
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      },
+      "replies": []
+    },
+    {
+      "id": 7,
+      "content": "hi hi hih",
       "createdAt": "Right now",
       "score": 0,
       "user": {

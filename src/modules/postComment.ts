@@ -5,9 +5,15 @@ import getData from "./getData";
 
 function postComment(url: string, commentContent: string) {
   getData<User>("http://localhost:3000/currentUser").then(data => {
-    const currentUser: User = data
+    const currentUser: User = data;
     getData<CommentType[]>("http://localhost:3000/comments").then(data => {
-      const comments = data;
+      let newId = data[data.length - 1].id;
+      data.forEach(comment => {
+        if (comment.replies.length) {
+          newId = comment.replies[comment.replies.length - 1].id > newId ? newId = comment.replies[comment.replies.length - 1].id : newId;
+        }
+      })
+      newId++;
       fetch(url, {
         method: 'POST',
         headers: {
@@ -15,17 +21,16 @@ function postComment(url: string, commentContent: string) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          id: 6,
+          id: newId,
           content: commentContent,
           createdAt: "Right now",
           score: 0,
           user: currentUser,
           replies: []
         })
-      }).then(res => res.json())
+      }).then(res => res.json());
     })
-    })
-
+  })
 }
 
 export default postComment;
