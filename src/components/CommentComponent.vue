@@ -12,9 +12,14 @@
           <h4 class="comment__profile__name">{{ comment.user.username }}</h4>
           <p>{{ comment.createdAt }}</p>
         </div>
-        <button v-if="comment.user.username !== currentUser.username" class="comment__reply-btn"><img src="../assets/icon-reply.svg" alt=""> Reply</button>
-        <div v-else class="comment__controls ">
-          <button class="btn-reset clr--red font-sz--16 font-wt--500"><img src="@/assets/icon-delete.svg" alt=""> Delete</button>
+        <button 
+          v-if="comment.user.username !== currentUser.username"
+          @click="showReply = !showReply"
+          class="comment__reply-btn">
+          <img src="../assets/icon-reply.svg" alt=""> Reply
+        </button>
+        <div v-else class="comment__controls">
+          <button @click="deleteComment(urlComment)" class="btn-reset clr--red font-sz--16 font-wt--500"><img src="@/assets/icon-delete.svg" alt=""> Delete</button>
           <button class="btn-reset clr--blue font-sz--16 font-wt--500"><img src="@/assets/icon-edit.svg" alt=""> Edit</button>
         </div>
       </div>
@@ -23,24 +28,24 @@
       </div>
     </div>
   </div>
-  <div v-if="comment.replies" class="reply-comments" :class="{ 'margin-top--1em': comment.replies.length != 0 }">
-    <comment-component 
-      v-for="reply in comment.replies"
-      :currentUser="currentUser"
-      :key="reply" :comment="reply"
-      @increase-score="reply.score++"
-      @decrease-score="reply.score--"
-    />
-  </div>
+  <add-comment v-if="showReply" :currentUser="currentUser" :urlComment="urlForComment" class="margin-top--05em"/>
 </template>
 
 <script lang="ts">
 import CommentType from '@/types/Comment'
 import User from '@/types/User'
-import { defineComponent, PropType } from 'vue'
-
+import { defineComponent, PropType, ref } from 'vue'
+import deleteComment from "@/modules/deleteComment";
+import addComment from "@/components/AddComment.vue";
 
 export default defineComponent({
+  setup(props) {
+    const showReply = ref<boolean>();
+    const urlForComment = ref<string>("/replies/" + props.comment.commentId);
+    var urlComment = ref<string>("")
+    urlComment.value = props.comment.commentId ? `replies/${props.comment.id}` : `comments/${props.comment.id}`
+    return { deleteComment, urlComment, showReply, urlForComment }
+  },
   emits: ['increaseScore', 'decreaseScore'],
   props: {
     comment: {
@@ -52,6 +57,19 @@ export default defineComponent({
         type: Object as PropType<User>,
     },
   },
+  components: { addComment }
 })
 </script>
 
+<!-- <style scoped>
+  .fade-enter-from {
+    transform: translateX(-100%);
+  }
+  .fade-enter-active, .fade-leave-active  {
+    transition: all 0.5s ease;
+  }
+
+  .fade-leave-to {
+    transform: translateX(0%);
+  }
+</style> -->

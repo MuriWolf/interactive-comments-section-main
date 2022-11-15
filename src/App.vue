@@ -1,6 +1,6 @@
 <template>
   <main class="container">
-    <comments-component v-if="comments && user" :comments="comments" :currentUser="user"/>
+    <comments-component v-if="comments && user" :comments="comments" :currentUser="user" :replies="replies"/>
   </main>
 </template>
 
@@ -14,16 +14,20 @@ export default defineComponent({
   components: { CommentsComponent },
   setup() {
     const comments = ref<CommentType[]>([])
+    const replies = ref<CommentType[]>([])
     const user = ref<User>()  
     onMounted(() => {
       getData<CommentType[]>("http://localhost:3000/comments").then(data => {
         comments.value = data
       })
+      getData<CommentType[]>("http://localhost:3000/replies").then(data => {
+        replies.value = data
+      })
       getData<User>("http://localhost:3000/currentUser").then(data => {
         user.value = data
       })
     })
-    return { comments, user }
+    return { comments, replies, user }
   }
 })
 </script>

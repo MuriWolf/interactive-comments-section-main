@@ -129,6 +129,10 @@ button {
   margin-top: 1em !important;
 }
 
+.margin-top--05em {
+  margin-top: 0.5em !important;
+}
+
 .input {
   display: block;
   font-family: unset;

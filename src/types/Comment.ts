@@ -1,7 +1,8 @@
 import User from "@/types/User"
 
-type CommentType = {
+interface CommentType {
     id: number,
+    commentId?: number,
     user: User,
     content: string,
     createdAt: string,
