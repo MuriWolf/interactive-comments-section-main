@@ -2,7 +2,7 @@
   <div class="add-comment">
     <img class="comment__profile__img add-comment__item" :src="currentUser.image.png" alt="">
     <textarea class="input add-comment__textarea add-comment__item" rows="4" placeholder="Add a comment..." v-model="commentContent"></textarea>
-    <button class="btn btn--blue add-comment__item" @click="postComment(urlComment, commentContent)">send</button>
+    <button class="btn btn--blue add-comment__item" @click="postComment(idComment, commentContent, urlComment, replyingTo)">send</button>
   </div>
 </template>
 
@@ -24,6 +24,14 @@ export default defineComponent({
     urlComment: {
         required: true,
         type: String,
+    },
+    replyingTo: {
+        required: true,
+        type: String,
+    },
+    idComment: {
+        required: true,
+        type: Number,
     },
   },
 })

@@ -22,6 +22,8 @@ export default defineComponent({
       })
       getData<CommentType[]>("http://localhost:3000/replies").then(data => {
         replies.value = data
+        console.log(data);
+        
       })
       getData<User>("http://localhost:3000/currentUser").then(data => {
         user.value = data

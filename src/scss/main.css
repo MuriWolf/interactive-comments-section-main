@@ -133,6 +133,10 @@ button {
   margin-top: 0.5em !important;
 }
 
+.align-self-right {
+  align-self: flex-end;
+}
+
 .input {
   display: block;
   font-family: unset;
