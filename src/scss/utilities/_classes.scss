@@ -1,4 +1,4 @@
-.container {
+.l-container {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -21,10 +21,6 @@
 
 .font-wt--500 {
     font-weight: 500;
-}
-
-.d-none {
-    display: none;
 }
 
 .margin-top--1em {

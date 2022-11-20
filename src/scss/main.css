@@ -96,7 +96,7 @@ button {
   --white: hsl(0, 0%, 100%);
 }
 
-.container {
+.l-container {
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -119,10 +119,6 @@ button {
 
 .font-wt--500 {
   font-weight: 500;
-}
-
-.d-none {
-  display: none;
 }
 
 .margin-top--1em {
@@ -198,9 +194,7 @@ button {
 }
 
 .comment {
-  display: flex;
   position: relative;
-  align-items: flex-start;
   gap: 1.15em;
   padding: 2rem;
   background-color: var(--white);
@@ -236,7 +230,7 @@ button {
 .comment .comment__content .comment__content__info .comment__controls > button:hover {
   opacity: 0.5;
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .comment .comment__content .comment__content__info .comment__controls {
     bottom: 2.5rem;
   }
@@ -253,7 +247,7 @@ button {
 .comment .comment__content .comment__content__info .comment__reply-btn:hover {
   opacity: 0.5;
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .comment .comment__content .comment__content__info .comment__reply-btn {
     bottom: 2.5rem;
   }
@@ -280,17 +274,12 @@ button {
   font-weight: bold;
   color: var(--moderate-blue);
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .comment .comment__rate {
     flex-direction: row;
   }
 }
 
-@media (max-width: 600px) {
-  .comment {
-    flex-direction: column-reverse;
-  }
-}
 .reply-comments {
   width: 90%;
   display: flex;
@@ -309,7 +298,7 @@ button {
   background-color: var(--light-gray);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .reply-comments {
     width: 94%;
   }
@@ -327,9 +316,11 @@ button {
 
 .add-comment__textarea {
   flex: 1;
+  font-size: 1.6rem;
+  line-height: 1.5;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .add-comment {
     justify-content: space-between;
     align-items: center;

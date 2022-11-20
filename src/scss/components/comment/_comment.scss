@@ -14,9 +14,7 @@
 }
 
 .comment {
-    display: flex;
     position: relative;
-    align-items: flex-start;
     gap: 1.15em;
     padding: 2rem;
     background-color: var(--white);
@@ -115,11 +113,11 @@
         }           
     }
 }
-@include bp.for-size(medium) {
-    .comment {
-        flex-direction: column-reverse;
-    }           
-}
+// @include bp.for-size(medium) {
+//     .comment {
+//         flex-direction: column-reverse;
+//     }           
+// }
 
 .reply-comments {
     width: 90%;

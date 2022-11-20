@@ -1,6 +1,5 @@
 @use "../../utilities/breakpoints" as bp;
 
-
 .add-comment {
     display: flex;
     align-items: flex-start;
@@ -14,6 +13,8 @@
 
 .add-comment__textarea {
     flex: 1;
+    font-size: 1.6rem;
+    line-height: 1.5;
 }
 
 @include bp.for-size(medium) {

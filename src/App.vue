@@ -1,5 +1,5 @@
 <template>
-  <main class="container">
+  <main class="l-container">
     <comments-component v-if="comments && user" :comments="comments" :currentUser="user" :replies="replies"/>
   </main>
 </template>

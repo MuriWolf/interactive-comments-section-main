@@ -32,19 +32,6 @@
         },
         "username": "maxblagun"
       }
-    },
-    {
-      "id": 8,
-      "content": "asdasda",
-      "createdAt": "Right now",
-      "score": 0,
-      "user": {
-        "image": {
-          "png": "./images/avatars/image-juliusomo.png",
-          "webp": "./images/avatars/image-juliusomo.webp"
-        },
-        "username": "juliusomo"
-      }
     }
   ],
   "replies": [
@@ -94,9 +81,9 @@
       }
     },
     {
-      "id": 9,
+      "id": 6,
       "commentId": 3,
-      "content": "Yore right!",
+      "content": "yo!",
       "createdAt": "Right now",
       "score": 0,
       "replyingTo": "ramsesmiron",

@@ -1,39 +1,42 @@
 <!-- eslint-disable vue/no-use-v-if-with-v-for -->
 <template>
-  <div v-if="comment && currentUser" class="comment">
-    <div class="comment__rate">
+  <div v-if="comment && currentUser" class="comment d-flex align-items-md-start flex-column-reverse flex-md-row">
+    <div class="comment__rate align-self-start">
       <button @click="$emit('increaseScore')" class="comment__rate__up-btn">+</button>
       <p class="comment__rate__value">{{ comment.score }}</p>
       <button @click="$emit('decreaseScore')" class="comment__rate__up-btn">-</button>
     </div>
-
-    <div class="comment__content">
+    <div class="comment__content flex-grow-1 flex-basis-0">
       <div class="comment__content__info">
         <div class="comment__profile">
           <img class="comment__profile__img" :src="(comment.user.image.png)" alt="">
           <h4 class="comment__profile__name">{{ comment.user.username }}</h4>
           <p>{{ comment.createdAt }}</p>
         </div>
-
         <button
           v-if="comment.user.username !== currentUser.username"
           @click="showReply = !showReply"
           class="comment__reply-btn">
           <img src="../assets/icon-reply.svg" alt=""> Reply
         </button>
-
         <div v-else class="comment__controls">
           <button @click="deleteComment(urlComment)" class="btn-reset clr--red font-sz--16 font-wt--500"><img src="@/assets/icon-delete.svg" alt=""> Delete</button>
           <button @click="editing = !editing" class="btn-reset clr--blue font-sz--16 font-wt--500"><img src="@/assets/icon-edit.svg" alt=""> Edit</button>
         </div>
-
-      </div>
-      <div class="comment__content__text">
-        <p>{{ comment.content }}</p>
       </div> 
 
+      <!--  
+        ================================================
+        ADICONAR FOCO NO INPUT DE ATULIZAÇÃO DE TEXTO
+        QUANDO FOR CLICADO NO BTN "EDIT"
+        ================================================
+       -->
+      <div class="mt-4 d-flex flex-grow-1 w-100 flex-column">
+        <p :class="{ 'd-none': editing }" >{{ comment.content }}</p>
+        <textarea class="input add-comment__textarea add-comment__item" :class="{ 'd-none': !editing }" rows="4" placeholder="Add a comment..." v-model="commentContent"></textarea>
+        <button v-if="editing" class="my-4 btn btn--blue align-self-end  justify-content-between">Update</button>
+      </div>
     </div>
-      <button v-if="editing" class="btn btn--blue align-self-right">Update</button>
   </div>
 
   <div class="reply-comments" :class="{ 'margin-top--1em': filteredReplies(comment.id, replies).length }">
@@ -65,8 +68,9 @@ export default defineComponent({
     const showReply = ref<boolean>();
     const urlForComment = ref<string>("/replies/");
     var urlComment = ref<string>("");
+    var commentContent = ref<string>(props.comment.content);
     urlComment.value = props.comment.commentId ? `replies/${props.comment.id}` : `comments/${props.comment.id}`
-    return { deleteComment, urlComment, showReply, urlForComment, filteredReplies, editing }
+    return { deleteComment, urlComment, showReply, urlForComment, filteredReplies, editing, commentContent }
   },
   emits: ['increaseScore', 'decreaseScore'],
   props: {
