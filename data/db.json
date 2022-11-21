@@ -32,6 +32,32 @@
         },
         "username": "maxblagun"
       }
+    },
+    {
+      "id": 7,
+      "content": "hey hey lroem dkiamswoi fn ajusnfdjua fn fnaiosfnoiqwemnc jsadjajsd djasjda  ajsddja asjdja 0qk ok, apo, opkop,kp kopk okads",
+      "createdAt": "Right now",
+      "score": 0,
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      }
+    },
+    {
+      "id": 9,
+      "content": "asda aaa",
+      "createdAt": "Right now",
+      "score": 0,
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      }
     }
   ],
   "replies": [
@@ -53,7 +79,7 @@
     {
       "id": 4,
       "commentId": 2,
-      "content": "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
+      "content": "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant and keep going.",
       "createdAt": "Right now",
       "score": 0,
       "replyingTo": "maxblagun",
@@ -66,9 +92,9 @@
       }
     },
     {
-      "id": 5,
+      "id": 8,
       "commentId": 1,
-      "content": "Totally agree!",
+      "content": "@amyrobson hey guys",
       "createdAt": "Right now",
       "score": 0,
       "replyingTo": "amyrobson",
@@ -78,22 +104,8 @@
           "webp": "./images/avatars/image-juliusomo.webp"
         },
         "username": "juliusomo"
-      }
-    },
-    {
-      "id": 6,
-      "commentId": 3,
-      "content": "yo!",
-      "createdAt": "Right now",
-      "score": 0,
-      "replyingTo": "ramsesmiron",
-      "user": {
-        "image": {
-          "png": "./images/avatars/image-juliusomo.png",
-          "webp": "./images/avatars/image-juliusomo.webp"
-        },
-        "username": "juliusomo"
-      }
+      },
+      "properity": "@amyrobson Texto antigo novo baguio asdasas aa"
     }
   ]
 }

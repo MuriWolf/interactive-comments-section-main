@@ -221,6 +221,13 @@ button {
   color: var(--dark-blue);
   font-weight: bold;
 }
+.comment .comment__content .comment__content__info .comment__profile .comment__profile__you {
+  color: var(--white);
+  background-color: var(--moderate-blue);
+  padding: 0.25em 0.35em;
+  border-radius: 3px;
+  font-size: 1.4rem;
+}
 .comment .comment__content .comment__content__info .comment__controls {
   position: absolute;
   right: 2rem;

@@ -11,6 +11,7 @@
         <div class="comment__profile">
           <img class="comment__profile__img" :src="(comment.user.image.png)" alt="">
           <h4 class="comment__profile__name">{{ comment.user.username }}</h4>
+          <span v-if="comment.user.username === currentUser.username" class="comment__profile__you">you</span>
           <p>{{ comment.createdAt }}</p>
         </div>
         <button
@@ -24,17 +25,10 @@
           <button @click="editing = !editing" class="btn-reset clr--blue font-sz--16 font-wt--500"><img src="@/assets/icon-edit.svg" alt=""> Edit</button>
         </div>
       </div> 
-
-      <!--  
-        ================================================
-        ADICONAR FOCO NO INPUT DE ATULIZAÇÃO DE TEXTO
-        QUANDO FOR CLICADO NO BTN "EDIT"
-        ================================================
-       -->
       <div class="mt-4 d-flex flex-grow-1 w-100 flex-column">
         <p :class="{ 'd-none': editing }" >{{ comment.content }}</p>
-        <textarea class="input add-comment__textarea add-comment__item" :class="{ 'd-none': !editing }" rows="4" placeholder="Add a comment..." v-model="commentContent"></textarea>
-        <button v-if="editing" class="my-4 btn btn--blue align-self-end  justify-content-between">Update</button>
+        <textarea ref="addCommentTextarea" class="input add-comment__textarea add-comment__item" :class="{ 'd-none': !editing }" rows="4" placeholder="Add a comment..." v-model="commentContent"></textarea>
+        <button v-if="editing" @click="udpateComment(urlComment, 'content', commentContent)" class="my-4 btn btn--blue align-self-end  justify-content-between">Update</button>
       </div>
     </div>
   </div>
@@ -51,8 +45,9 @@
 <script lang="ts">
 import CommentType from '@/types/Comment'
 import User from '@/types/User'
-import { defineComponent, PropType, ref } from 'vue'
+import { defineComponent, PropType, ref, watch } from 'vue'
 import deleteComment from "@/modules/deleteComment";
+import udpateComment from "@/modules/updateComment";
 import addComment from "@/components/AddComment.vue";
 
 export default defineComponent({
@@ -64,13 +59,23 @@ export default defineComponent({
         }
       })
     }
-    const editing = ref<boolean>();
+    const addCommentTextarea = ref();
+    const editing = ref<boolean>(false);
     const showReply = ref<boolean>();
     const urlForComment = ref<string>("/replies/");
     var urlComment = ref<string>("");
     var commentContent = ref<string>(props.comment.content);
+
     urlComment.value = props.comment.commentId ? `replies/${props.comment.id}` : `comments/${props.comment.id}`
-    return { deleteComment, urlComment, showReply, urlForComment, filteredReplies, editing, commentContent }
+
+    watch(editing, () => {
+      if (editing.value == true) {
+        setTimeout(() => {
+          addCommentTextarea.value.focus();
+        }, 50)
+      }
+    })
+    return { deleteComment, urlComment, showReply, urlForComment, filteredReplies, editing, commentContent, addCommentTextarea, udpateComment }
   },
   emits: ['increaseScore', 'decreaseScore'],
   props: {
@@ -90,7 +95,6 @@ export default defineComponent({
   components: { addComment }
 })
 </script>
-
 <!-- <style scoped>
   .fade-enter-from {
     transform: translateX(-100%);
