@@ -1,10 +1,11 @@
 <!-- eslint-disable vue/no-use-v-if-with-v-for -->
 <template>
+  <delete-modal v-if="deleting"/>
   <div v-if="comment && currentUser" class="comment d-flex align-items-md-start flex-column-reverse flex-md-row">
     <div class="comment__rate align-self-start">
-      <button @click="$emit('increaseScore')" class="comment__rate__up-btn">+</button>
+      <button @click="$emit('increaseScore'); udpateComment(urlComment, 'score', comment.score)" class="comment__rate__up-btn">+</button>
       <p class="comment__rate__value">{{ comment.score }}</p>
-      <button @click="$emit('decreaseScore')" class="comment__rate__up-btn">-</button>
+      <button @click="$emit('decreaseScore'); udpateComment(urlComment, 'score', comment.score)" class="comment__rate__up-btn">-</button>
     </div>
     <div class="comment__content flex-grow-1 flex-basis-0">
       <div class="comment__content__info">
@@ -21,7 +22,7 @@
           <img src="../assets/icon-reply.svg" alt=""> Reply
         </button>
         <div v-else class="comment__controls">
-          <button @click="deleteComment(urlComment)" class="btn-reset clr--red font-sz--16 font-wt--500"><img src="@/assets/icon-delete.svg" alt=""> Delete</button>
+          <button @click="deleting = !deleting" class="btn-reset clr--red font-sz--16 font-wt--500"><img src="@/assets/icon-delete.svg" alt=""> Delete</button>
           <button @click="editing = !editing" class="btn-reset clr--blue font-sz--16 font-wt--500"><img src="@/assets/icon-edit.svg" alt=""> Edit</button>
         </div>
       </div> 
@@ -49,6 +50,7 @@ import { defineComponent, PropType, ref, watch } from 'vue'
 import deleteComment from "@/modules/deleteComment";
 import udpateComment from "@/modules/updateComment";
 import addComment from "@/components/AddComment.vue";
+import deleteModal from "@/components/DeleteModal.vue";
 
 export default defineComponent({
   setup(props) {
@@ -61,6 +63,7 @@ export default defineComponent({
     }
     const addCommentTextarea = ref();
     const editing = ref<boolean>(false);
+    const deleting = ref<boolean>(false);
     const showReply = ref<boolean>();
     const urlForComment = ref<string>("/replies/");
     var urlComment = ref<string>("");
@@ -75,7 +78,11 @@ export default defineComponent({
         }, 50)
       }
     })
-    return { deleteComment, urlComment, showReply, urlForComment, filteredReplies, editing, commentContent, addCommentTextarea, udpateComment }
+    return { deleteComment, urlComment, showReply,
+             urlForComment, filteredReplies, editing,
+             commentContent, addCommentTextarea, udpateComment,
+             deleting 
+            }
   },
   emits: ['increaseScore', 'decreaseScore'],
   props: {
@@ -92,7 +99,7 @@ export default defineComponent({
         type: Object as PropType<User>,
     },
   },
-  components: { addComment }
+  components: { addComment, deleteModal }
 })
 </script>
 <!-- <style scoped>

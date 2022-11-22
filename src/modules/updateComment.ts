@@ -1,5 +1,5 @@
 // import Comment from "@/types/Comment"
-function updateComment(url: string, property: string, value: string) {
+function updateComment(url: string, property: string, value: string | number) {
     fetch("http://localhost:3000/" + url, {
         method: 'PATCH',
         headers: {

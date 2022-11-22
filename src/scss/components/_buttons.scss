@@ -22,3 +22,21 @@
     }
 }
 
+.btn--red {
+    color: var(--white);
+    background-color: var(--soft-red);
+
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+.btn--gray {
+    color: var(--white);
+    background-color: var(--grayish-blue);
+
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
