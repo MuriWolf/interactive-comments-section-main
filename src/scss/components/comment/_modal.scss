@@ -12,9 +12,10 @@
 
 .modal {
     margin: auto;
-    width: 400px;
-    height: 300px;
-    padding: 2em;
+    width: 95%;
+    max-width: 360px;
+    padding: 1.9em;
     border-radius: 8px;
+    box-sizing: border-box;
     background-color: var(--white);
 }

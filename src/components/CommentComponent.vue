@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-use-v-if-with-v-for -->
 <template>
-  <delete-modal v-if="deleting"/>
+  <delete-modal v-if="deleting" :urlComment="urlComment" @change-deleting="deleting = !deleting"/>
   <div v-if="comment && currentUser" class="comment d-flex align-items-md-start flex-column-reverse flex-md-row">
     <div class="comment__rate align-self-start">
       <button @click="$emit('increaseScore'); udpateComment(urlComment, 'score', comment.score)" class="comment__rate__up-btn">+</button>

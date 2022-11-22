@@ -32,19 +32,6 @@
         },
         "username": "maxblagun"
       }
-    },
-    {
-      "id": 7,
-      "content": "Editing comment yeah ",
-      "createdAt": "Right now",
-      "score": 4,
-      "user": {
-        "image": {
-          "png": "./images/avatars/image-juliusomo.png",
-          "webp": "./images/avatars/image-juliusomo.webp"
-        },
-        "username": "juliusomo"
-      }
     }
   ],
   "replies": [
@@ -93,6 +80,21 @@
         "username": "juliusomo"
       },
       "properity": "@amyrobson Texto antigo novo baguio asdasas aa"
+    },
+    {
+      "id": 9,
+      "commentId": 3,
+      "content": "@ramsesmiron agreed.",
+      "createdAt": "Right now",
+      "score": 0,
+      "replyingTo": "ramsesmiron",
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      }
     }
   ]
 }

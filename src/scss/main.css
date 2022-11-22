@@ -72,6 +72,10 @@ button {
   color: var(--dark-blue);
 }
 
+.fw-semi-bold {
+  font-weight: 500;
+}
+
 body {
   background-color: var(--very-light-gray);
 }
@@ -86,6 +90,10 @@ button {
 
 h3 {
   font-size: 2.2rem;
+}
+
+strong {
+  font-weight: 700;
 }
 
 :root {
@@ -171,7 +179,7 @@ h3 {
 .btn {
   background: none;
   border: none;
-  padding: 0.9em 1.65em;
+  padding: 0.85em 1.7em;
   border-radius: 8px;
   text-transform: uppercase;
   cursor: pointer;
@@ -375,9 +383,10 @@ h3 {
 
 .modal {
   margin: auto;
-  width: 400px;
-  height: 300px;
-  padding: 2em;
+  width: 95%;
+  max-width: 360px;
+  padding: 1.9em;
   border-radius: 8px;
+  box-sizing: border-box;
   background-color: var(--white);
 }/*# sourceMappingURL=main.css.map */
