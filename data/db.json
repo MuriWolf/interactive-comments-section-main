@@ -32,6 +32,19 @@
         },
         "username": "maxblagun"
       }
+    },
+    {
+      "id": 10,
+      "content": "aaaasas dasasdas",
+      "createdAt": "Right now",
+      "score": 4,
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      }
     }
   ],
   "replies": [
@@ -68,7 +81,7 @@
     {
       "id": 8,
       "commentId": 1,
-      "content": "@amyrobson hey guys",
+      "content": "@amyrobson hey guys a",
       "createdAt": "Right now",
       "score": 1,
       "replyingTo": "amyrobson",
@@ -80,21 +93,6 @@
         "username": "juliusomo"
       },
       "properity": "@amyrobson Texto antigo novo baguio asdasas aa"
-    },
-    {
-      "id": 9,
-      "commentId": 3,
-      "content": "@ramsesmiron agreed.",
-      "createdAt": "Right now",
-      "score": 0,
-      "replyingTo": "ramsesmiron",
-      "user": {
-        "image": {
-          "png": "./images/avatars/image-juliusomo.png",
-          "webp": "./images/avatars/image-juliusomo.webp"
-        },
-        "username": "juliusomo"
-      }
     }
   ]
 }

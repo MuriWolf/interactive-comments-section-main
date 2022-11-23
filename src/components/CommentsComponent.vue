@@ -4,7 +4,7 @@
       <comment-component :replies="replies" :comment="comment" :currentUser="currentUser" @increase-score="comment.score++" @decrease-score="comment.score--"/>
     </div>
   </div>
-  <add-comment :idComment="0" :currentUser="currentUser" :urlComment="urlComment"/>
+  <add-comment :idComment="0" :currentUser="currentUser" :urlComment="urlComment" :comments="comments"/>
 </template>
 
 <script lang="ts">
@@ -18,6 +18,7 @@ export default defineComponent({
   setup() {
     const urlComment = ref<string>("/comments");
     return { urlComment }
+    
   },
   props: {
     comments: {
@@ -36,7 +37,3 @@ export default defineComponent({
     components: { CommentComponent, addComment },
 })
 </script>
-
-<style>
-
-</style>
