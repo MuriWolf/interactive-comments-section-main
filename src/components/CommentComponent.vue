@@ -46,14 +46,18 @@
 <script lang="ts">
 import CommentType from '@/types/Comment'
 import User from '@/types/User'
-import { defineComponent, PropType, ref, watch } from 'vue'
+import { defineComponent, onMounted, PropType, ref, watch } from 'vue'
 import deleteComment from "@/modules/deleteComment";
 import udpateComment from "@/modules/updateComment";
 import addComment from "@/components/AddComment.vue";
 import deleteModal from "@/components/DeleteModal.vue";
 
+
 export default defineComponent({
   setup(props) {
+    // onMounted(() => {
+    //   console.log(reloadPage);
+    // })
     function filteredReplies(id: number, replies: CommentType[]) {
       return replies.filter(reply => {
         if(reply.commentId == id) {
