@@ -1,11 +1,11 @@
 <template>
-  <main class="l-container">
+  <main class="l-container" @load-data="UpdateData">
     <comments-component v-if="comments && user" :comments="comments" :currentUser="user" :replies="replies"/>
   </main>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, watchEffect } from 'vue'
+import { defineComponent,  onMounted, ref } from 'vue'
 import CommentsComponent from '@/components/CommentsComponent.vue'
 import CommentType from "@/types/Comment"
 import User from "@/types/User"
@@ -16,25 +16,21 @@ export default defineComponent({
     const comments = ref<CommentType[]>([])
     const replies = ref<CommentType[]>([])
     const user = ref<User>()  
-
-    // watchEffect(() => {
-    //   if (reloadPage === true) {
-    //     console.log(reloadPage);
-        
-    //     reloadPage = false
-    //     getData<CommentType[]>("http://localhost:3000/comments").then(data => {
-    //       comments.value = data
-    //     })
-    //     getData<CommentType[]>("http://localhost:3000/replies").then(data => {
-    //       replies.value = data
-    //       console.log(data);
+    var getUpatedData = ref<boolean>(false);
+    function UpdateData() {
+      console.log("apiugshgarwszsgdoij");
+      getData<CommentType[]>("http://localhost:3000/comments").then(data => {
+          comments.value = data
+        })
+        getData<CommentType[]>("http://localhost:3000/replies").then(data => {
+          replies.value = data
+          console.log(data);
           
-    //     })
-    //     getData<User>("http://localhost:3000/currentUser").then(data => {
-    //       user.value = data
-    //     })
-    //   }
-    // })
+        })
+        getData<User>("http://localhost:3000/currentUser").then(data => {
+          user.value = data
+        })
+    }
     onMounted(() => {
       getData<CommentType[]>("http://localhost:3000/comments").then(data => {
         comments.value = data
@@ -46,7 +42,7 @@ export default defineComponent({
         user.value = data
       })
     })
-    return { comments, replies, user }
+    return { comments, replies, user, getUpatedData, UpdateData }
   }
 })
 </script>

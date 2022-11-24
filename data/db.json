@@ -48,20 +48,7 @@
     },
     {
       "id": 11,
-      "content": "AAAAA",
-      "createdAt": "Right now",
-      "score": 0,
-      "user": {
-        "image": {
-          "png": "./images/avatars/image-juliusomo.png",
-          "webp": "./images/avatars/image-juliusomo.webp"
-        },
-        "username": "juliusomo"
-      }
-    },
-    {
-      "id": 12,
-      "content": "dsdfsd",
+      "content": "pao dsafsadfsedfwsed cwewe sadfasas",
       "createdAt": "Right now",
       "score": 0,
       "user": {
