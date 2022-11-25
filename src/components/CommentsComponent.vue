@@ -17,9 +17,9 @@ import User from '@/types/User';
 export default defineComponent({
   setup() {
     const urlComment = ref<string>("/comments");
-    return { urlComment }
-    
+    return { urlComment}
   },
+  emits: ['loadData'],
   props: {
     comments: {
         required: true,

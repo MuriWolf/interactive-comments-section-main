@@ -1,11 +1,11 @@
 <template>
-  <main class="l-container" @load-data="UpdateData">
+  <main class="l-container" >
     <comments-component v-if="comments && user" :comments="comments" :currentUser="user" :replies="replies"/>
   </main>
 </template>
 
 <script lang="ts">
-import { defineComponent,  onMounted, ref } from 'vue'
+import { defineComponent,  onMounted, ref, reactive  } from 'vue'
 import CommentsComponent from '@/components/CommentsComponent.vue'
 import CommentType from "@/types/Comment"
 import User from "@/types/User"
@@ -17,32 +17,34 @@ export default defineComponent({
     const replies = ref<CommentType[]>([])
     const user = ref<User>()  
     var getUpatedData = ref<boolean>(false);
-    function UpdateData() {
-      console.log("apiugshgarwszsgdoij");
-      getData<CommentType[]>("http://localhost:3000/comments").then(data => {
+    // function UpdateData() {
+    //   console.log("apiugshgarwszsgdoij");
+    //   getData<CommentType[]>("http://localhost:3000/comments").then(data => {
+    //       comments.value = data
+    //     })
+    //     getData<CommentType[]>("http://localhost:3000/replies").then(data => {
+    //       replies.value = data
+    //       console.log(data);
+          
+    //     })
+    //     getData<User>("http://localhost:3000/currentUser").then(data => {
+    //       user.value = data
+    //     })
+    // }
+    onMounted(() => {
+      setTimeout(() => {
+        getData<CommentType[]>("http://localhost:3000/comments").then(data => {
           comments.value = data
         })
         getData<CommentType[]>("http://localhost:3000/replies").then(data => {
-          replies.value = data
-          console.log(data);
-          
+          replies.value = data        
         })
         getData<User>("http://localhost:3000/currentUser").then(data => {
           user.value = data
         })
-    }
-    onMounted(() => {
-      getData<CommentType[]>("http://localhost:3000/comments").then(data => {
-        comments.value = data
-      })
-      getData<CommentType[]>("http://localhost:3000/replies").then(data => {
-        replies.value = data        
-      })
-      getData<User>("http://localhost:3000/currentUser").then(data => {
-        user.value = data
-      })
+      }, 3000)
     })
-    return { comments, replies, user, getUpatedData, UpdateData }
+    return { comments, replies, user, getUpatedData }
   }
 })
 </script>
