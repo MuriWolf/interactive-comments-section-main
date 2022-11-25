@@ -29,7 +29,7 @@
       <div class="mt-4 d-flex flex-grow-1 w-100 flex-column">
         <p :class="{ 'd-none': editing }" >{{ comment.content }}</p>
         <textarea ref="addCommentTextarea" class="input add-comment__textarea add-comment__item" :class="{ 'd-none': !editing }" rows="4" placeholder="Add a comment..." v-model="commentContent"></textarea>
-        <button v-if="editing" @click="udpateComment(urlComment, 'content', commentContent)" class="my-4 btn btn--blue align-self-end  justify-content-between">Update</button>
+        <button v-if="editing" @click="udpateComment(urlComment, 'content', commentContent), alternateReloadPage(true)" class="my-4 btn btn--blue align-self-end  justify-content-between">Update</button>
       </div>
     </div>
   </div>
@@ -46,15 +46,20 @@
 <script lang="ts">
 import CommentType from '@/types/Comment'
 import User from '@/types/User'
-import { defineComponent, PropType, ref, watch } from 'vue'
+import { computed, defineComponent, PropType, ref, watch } from 'vue'
 import deleteComment from "@/modules/deleteComment";
 import udpateComment from "@/modules/updateComment";
 import AddComment from "@/components/AddComment.vue";
 import deleteModal from "@/components/DeleteModal.vue";
-
+import { useStore } from 'vuex'
 
 export default defineComponent({
   setup(props) {
+    const store = useStore();
+    const reloadPage = computed(() => store.state.reloadPage);
+    const alternateReloadPage = (bool: boolean) => {
+      store.commit('alternateReloadPage', bool)
+    }
     function filteredReplies(id: number, replies: CommentType[]) {
       return replies.filter(reply => {
         if(reply.commentId == id) {
@@ -82,7 +87,7 @@ export default defineComponent({
     return { deleteComment, urlComment, showReply,
              urlForComment, filteredReplies, editing,
              commentContent, addCommentTextarea, udpateComment,
-             deleting 
+             deleting, reloadPage, alternateReloadPage
             }
   },
   emits: ['increaseScore', 'decreaseScore'],

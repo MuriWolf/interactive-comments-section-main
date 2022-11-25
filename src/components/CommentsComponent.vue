@@ -8,16 +8,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref } from 'vue';
+import { computed, defineComponent, PropType, ref } from 'vue';
 import CommentComponent from '@/components/CommentComponent.vue';
 import addComment from '@/components/AddComment.vue';
 import CommentType from '@/types/Comment';
 import User from '@/types/User';
 
+
 export default defineComponent({
   setup() {
     const urlComment = ref<string>("/comments");
-    return { urlComment}
+    return { urlComment }
   },
   emits: ['loadData'],
   props: {

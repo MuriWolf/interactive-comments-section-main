@@ -1,18 +1,30 @@
 <template>
+  <div v-if="reloadPage" @click="alternateReloadPage(false)">The reload page is true!</div>
   <main class="l-container" >
     <comments-component v-if="comments && user" :comments="comments" :currentUser="user" :replies="replies"/>
   </main>
 </template>
 
 <script lang="ts">
-import { defineComponent,  onMounted, ref, reactive  } from 'vue'
+import { computed, defineComponent,  onMounted, ref, watch } from 'vue'
 import CommentsComponent from '@/components/CommentsComponent.vue'
 import CommentType from "@/types/Comment"
 import User from "@/types/User"
 import getData from "@/modules/getData";
+import { useStore } from 'vuex'
 export default defineComponent({
   components: { CommentsComponent },
   setup() {
+    const store = useStore();
+    const reloadPage = computed(() => store.state.reloadPage);
+    const alternateReloadPage = (bool: boolean) => {
+      store.commit('alternateReloadPage', bool)
+    }
+
+    watch(reloadPage, () => {
+      console.log(reloadPage)
+    })
+
     const comments = ref<CommentType[]>([])
     const replies = ref<CommentType[]>([])
     const user = ref<User>()  
@@ -32,7 +44,6 @@ export default defineComponent({
     //     })
     // }
     onMounted(() => {
-      setTimeout(() => {
         getData<CommentType[]>("http://localhost:3000/comments").then(data => {
           comments.value = data
         })
@@ -42,9 +53,8 @@ export default defineComponent({
         getData<User>("http://localhost:3000/currentUser").then(data => {
           user.value = data
         })
-      }, 3000)
-    })
-    return { comments, replies, user, getUpatedData }
+      })
+    return { comments, replies, user, getUpatedData, reloadPage, alternateReloadPage }
   }
 })
 </script>
