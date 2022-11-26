@@ -29,7 +29,7 @@
       <div class="mt-4 d-flex flex-grow-1 w-100 flex-column">
         <p :class="{ 'd-none': editing }" >{{ comment.content }}</p>
         <textarea ref="addCommentTextarea" class="input add-comment__textarea add-comment__item" :class="{ 'd-none': !editing }" rows="4" placeholder="Add a comment..." v-model="commentContent"></textarea>
-        <button v-if="editing" @click="udpateComment(urlComment, 'content', commentContent), alternateReloadPage(true)" class="my-4 btn btn--blue align-self-end  justify-content-between">Update</button>
+        <button v-if="editing" @click="udpateComment(urlComment, 'content', commentContent); alternateReloadPage(true); editing = !editing" class="my-4 btn btn--blue align-self-end  justify-content-between">Update</button>
       </div>
     </div>
   </div>

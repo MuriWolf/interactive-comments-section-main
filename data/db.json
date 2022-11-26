@@ -35,9 +35,9 @@
     },
     {
       "id": 10,
-      "content": "aaaasas dasasdas",
+      "content": "haha",
       "createdAt": "Right now",
-      "score": 4,
+      "score": 2,
       "user": {
         "image": {
           "png": "./images/avatars/image-juliusomo.png",
@@ -64,11 +64,76 @@
       }
     },
     {
-      "id": 8,
-      "commentId": 1,
-      "content": "@amyrobson hey guys a a asasa  dsadasdasad",
+      "id": 4,
+      "content": "adasdasas",
       "createdAt": "Right now",
-      "score": 1,
+      "score": 0,
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      }
+    },
+    {
+      "id": 5,
+      "content": "adasdasas",
+      "createdAt": "Right now",
+      "score": 0,
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      }
+    },
+    {
+      "id": 6,
+      "content": "adasdasas",
+      "createdAt": "Right now",
+      "score": 0,
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      }
+    },
+    {
+      "id": 7,
+      "content": "sdcsdcs",
+      "createdAt": "Right now",
+      "score": 0,
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      }
+    },
+    {
+      "id": 8,
+      "content": "dasdas",
+      "createdAt": "Right now",
+      "score": 0,
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      }
+    },
+    {
+      "id": 9,
+      "commentId": 1,
+      "content": "@amyrobson hey! dasdas",
+      "createdAt": "Right now",
+      "score": 0,
       "replyingTo": "amyrobson",
       "user": {
         "image": {
@@ -76,8 +141,22 @@
           "webp": "./images/avatars/image-juliusomo.webp"
         },
         "username": "juliusomo"
-      },
-      "properity": "@amyrobson Texto antigo novo baguio asdasas aa"
+      }
+    },
+    {
+      "id": 11,
+      "commentId": 1,
+      "content": "@amyrobson ajsndajksndakjsdnkajsndkjasnjkansdjkansdkjanskjdanjsas",
+      "createdAt": "Right now",
+      "score": 0,
+      "replyingTo": "amyrobson",
+      "user": {
+        "image": {
+          "png": "./images/avatars/image-juliusomo.png",
+          "webp": "./images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      }
     }
   ]
 }

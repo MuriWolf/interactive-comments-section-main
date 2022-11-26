@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent,  onMounted, ref, watch } from 'vue'
+import { computed, defineComponent, onMounted, ref, watch } from 'vue'
 import CommentsComponent from '@/components/CommentsComponent.vue'
 import CommentType from "@/types/Comment"
 import User from "@/types/User"
@@ -17,32 +17,31 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const reloadPage = computed(() => store.state.reloadPage);
-    const alternateReloadPage = (bool: boolean) => {
+    const alternateReloadPage = (bool: boolean) => {  
       store.commit('alternateReloadPage', bool)
     }
 
     watch(reloadPage, () => {
-      console.log(reloadPage)
+      setTimeout(() => {
+        if (reloadPage.value === true) {
+          getData<CommentType[]>("http://localhost:3000/comments").then(data => {
+            comments.value = data
+          })
+          getData<CommentType[]>("http://localhost:3000/replies").then(data => {
+            replies.value = data        
+          })
+          getData<User>("http://localhost:3000/currentUser").then(data => {
+            user.value = data
+          })
+          alternateReloadPage(false)
+        }
+      }, 250)
     })
 
     const comments = ref<CommentType[]>([])
     const replies = ref<CommentType[]>([])
     const user = ref<User>()  
     var getUpatedData = ref<boolean>(false);
-    // function UpdateData() {
-    //   console.log("apiugshgarwszsgdoij");
-    //   getData<CommentType[]>("http://localhost:3000/comments").then(data => {
-    //       comments.value = data
-    //     })
-    //     getData<CommentType[]>("http://localhost:3000/replies").then(data => {
-    //       replies.value = data
-    //       console.log(data);
-          
-    //     })
-    //     getData<User>("http://localhost:3000/currentUser").then(data => {
-    //       user.value = data
-    //     })
-    // }
     onMounted(() => {
         getData<CommentType[]>("http://localhost:3000/comments").then(data => {
           comments.value = data
@@ -69,5 +68,17 @@ function $reloadPage($reloadPage: any) {
 }
 
 function reloadPage(reloadPage: any) {
+  throw new Error('Function not implemented.');
+}
+
+function forceUpdate() {
+  throw new Error('Function not implemented.');
+}
+
+function forceUpdate() {
+  throw new Error('Function not implemented.');
+}
+
+function forceUpdate() {
   throw new Error('Function not implemented.');
 }

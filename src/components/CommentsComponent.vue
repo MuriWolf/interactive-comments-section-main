@@ -4,11 +4,11 @@
       <comment-component :replies="replies" :comment="comment" :currentUser="currentUser" @increase-score="comment.score++" @decrease-score="comment.score--"/>
     </div>
   </div>
-  <add-comment :idComment="0" :currentUser="currentUser" :urlComment="urlComment" :comments="comments"/>
+  <add-comment :idComment="0" :currentUser="currentUser" :urlComment="urlComment" :comments="comments" :replyingTo="false"/>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, ref } from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
 import CommentComponent from '@/components/CommentComponent.vue';
 import addComment from '@/components/AddComment.vue';
 import CommentType from '@/types/Comment';
@@ -23,6 +23,7 @@ export default defineComponent({
   emits: ['loadData'],
   props: {
     comments: {
+      
         required: true,
         type: Array as PropType<CommentType[]>,
     },

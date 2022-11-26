@@ -10,7 +10,7 @@ function getLastId( array: CommentType[], newId: number): number {
   return newId
 }
 
-function postComment(idComment: number, commentContent: string, url: string, comments: CommentType[], replyingTo?: string) {
+function postComment(idComment: number, commentContent: string, url: string, comments: CommentType[], replyingTo?: string | boolean) {
   getData<User>("http://localhost:3000/currentUser").then(data => {
     const currentUser: User = data;
     getData<CommentType[]>("http://localhost:3000/replies").then(data => {
