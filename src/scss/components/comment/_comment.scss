@@ -8,13 +8,13 @@
 
 .comment-container {
     display: flex;
+    position: relative;
     flex-direction: column;
     width: 100%;
-    // gap: 1em;
 }
 
 .comment {
-    position: relative ;
+    position: relative;
     gap: 1.15em;
     padding: 2rem;
     background-color: var(--white);

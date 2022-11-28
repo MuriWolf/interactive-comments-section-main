@@ -1,11 +1,11 @@
 <!-- eslint-disable vue/no-use-v-if-with-v-for -->
 <template>
-  <delete-modal v-if="deleting" :urlComment="urlComment" @change-deleting="deleting = !deleting"/>
+  <delete-modal v-if="deleting && !finishedFetch" :urlComment="urlComment" @change-deleting="deleting = !deleting" @make-delete="finishedFetch =  deleteComment(urlComment)"/>
   <div v-if="comment && currentUser" class="comment d-flex align-items-md-start flex-column-reverse flex-md-row">
     <div class="comment__rate align-self-start">
-      <button @click="$emit('increaseScore'); udpateComment(urlComment, 'score', comment.score)" class="comment__rate__up-btn">+</button>
+      <button @click="$emit('increaseScore'); updateComment(urlComment, 'score', comment.score)" class="comment__rate__up-btn">+</button>
       <p class="comment__rate__value">{{ comment.score }}</p>
-      <button @click="$emit('decreaseScore'); udpateComment(urlComment, 'score', comment.score)" class="comment__rate__up-btn">-</button>
+      <button @click="$emit('decreaseScore'); updateComment(urlComment, 'score', comment.score)" class="comment__rate__up-btn">-</button>
     </div>
     <div class="comment__content flex-grow-1 flex-basis-0">
       <div class="comment__content__info">
@@ -29,7 +29,7 @@
       <div class="mt-4 d-flex flex-grow-1 w-100 flex-column">
         <p :class="{ 'd-none': editing }" >{{ comment.content }}</p>
         <textarea ref="addCommentTextarea" class="input add-comment__textarea add-comment__item" :class="{ 'd-none': !editing }" rows="4" placeholder="Add a comment..." v-model="commentContent"></textarea>
-        <button v-if="editing" @click="udpateComment(urlComment, 'content', commentContent); alternateReloadPage(true); editing = !editing" class="my-4 btn btn--blue align-self-end  justify-content-between">Update</button>
+        <button v-if="editing" @click="finishedFetch = updateComment(urlComment, 'content', commentContent); editing = !editing" class="my-4 btn btn--blue align-self-end  justify-content-between">Update</button>
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@
     </div>
   </div>
 
-  <add-comment v-if="showReply" :currentUser="currentUser" :replyingTo="comment.user.username" :urlComment="urlForComment" :idComment="comment.id" class="margin-top--05em"/>
+  <add-comment @stopReplying="showReply = false" v-if="showReply" :currentUser="currentUser" :replyingTo="comment.user.username" :urlComment="urlForComment" :idComment="comment.id" class="margin-top--05em"/>
 </template>
 
 <script lang="ts">
@@ -48,18 +48,22 @@ import CommentType from '@/types/Comment'
 import User from '@/types/User'
 import { computed, defineComponent, PropType, ref, watch } from 'vue'
 import deleteComment from "@/modules/deleteComment";
-import udpateComment from "@/modules/updateComment";
+import updateComment from "@/modules/updateComment";
 import AddComment from "@/components/AddComment.vue";
 import deleteModal from "@/components/DeleteModal.vue";
 import { useStore } from 'vuex'
 
 export default defineComponent({
   setup(props) {
+    let finishedFetch = ref<boolean>(false)
     const store = useStore();
     const reloadPage = computed(() => store.state.reloadPage);
-    const alternateReloadPage = (bool: boolean) => {
-      store.commit('alternateReloadPage', bool)
-    }
+    watch(finishedFetch, () => {
+      if (finishedFetch.value === true) {
+        finishedFetch.value = false
+        store.commit('alternateReloadPage', true)
+      }
+    })
     function filteredReplies(id: number, replies: CommentType[]) {
       return replies.filter(reply => {
         if(reply.commentId == id) {
@@ -86,8 +90,8 @@ export default defineComponent({
     })
     return { deleteComment, urlComment, showReply,
              urlForComment, filteredReplies, editing,
-             commentContent, addCommentTextarea, udpateComment,
-             deleting, reloadPage, alternateReloadPage
+             commentContent, addCommentTextarea, updateComment,
+             deleting, reloadPage, finishedFetch
             }
   },
   emits: ['increaseScore', 'decreaseScore'],
@@ -108,15 +112,3 @@ export default defineComponent({
   components: { AddComment, deleteModal }
 })
 </script>
-<!-- <style scoped>
-  .fade-enter-from {
-    transform: translateX(-100%);
-  }
-  .fade-enter-active, .fade-leave-active  {
-    transition: all 0.5s ease;
-  }
-
-  .fade-leave-to {
-    transform: translateX(0%);
-  }
-</style> -->

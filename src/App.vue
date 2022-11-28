@@ -1,5 +1,4 @@
 <template>
-  <div v-if="reloadPage" @click="alternateReloadPage(false)">The reload page is true!</div>
   <main class="l-container" >
     <comments-component v-if="comments && user" :comments="comments" :currentUser="user" :replies="replies"/>
   </main>
@@ -35,7 +34,7 @@ export default defineComponent({
           })
           alternateReloadPage(false)
         }
-      }, 250)
+      }, 600)
     })
 
     const comments = ref<CommentType[]>([])

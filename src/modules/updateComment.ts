@@ -1,5 +1,5 @@
 // import Comment from "@/types/Comment"
-function updateComment(url: string, property: string, value: string | number) {
+function updateComment(url: string, property: string, value: string | number): boolean {
     fetch("http://localhost:3000/" + url, {
         method: 'PATCH',
         headers: {
@@ -9,7 +9,8 @@ function updateComment(url: string, property: string, value: string | number) {
         body: JSON.stringify({
           [property]: value,
         })
-      }).then(res => res.json());
+      }).then(res => res.json())
+    return true
 }
 
 
