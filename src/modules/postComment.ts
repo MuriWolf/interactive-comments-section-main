@@ -61,5 +61,4 @@ function postComment(idComment: number, commentContent: string, url: string, com
   })
   return true
 }
-
 export default postComment;

@@ -49,7 +49,7 @@ import User from '@/types/User'
 import { computed, defineComponent, PropType, ref, watch } from 'vue'
 import deleteComment from "@/modules/deleteComment";
 import updateComment from "@/modules/updateComment";
-import AddComment from "@/components/AddComment.vue";
+import addComment from "@/components/AddComment.vue";
 import deleteModal from "@/components/DeleteModal.vue";
 import { useStore } from 'vuex'
 
