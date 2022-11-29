@@ -109,6 +109,6 @@ export default defineComponent({
         type: Object as PropType<User>,
     },
   },
-  components: { AddComment, deleteModal }
+  components: { addComment, deleteModal }
 })
 </script>
