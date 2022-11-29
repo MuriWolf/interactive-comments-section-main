@@ -10,7 +10,7 @@
 <script lang="ts">
 import { defineComponent, PropType, ref } from 'vue';
 import CommentComponent from '@/components/CommentComponent.vue';
-import addComment from '@/components/AddComment.vue';
+import addComment from '@/components/addComment.vue';
 import CommentType from '@/types/Comment';
 import User from '@/types/User';
 
