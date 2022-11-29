@@ -21,20 +21,20 @@ export default defineComponent({
     }
 
     watch(reloadPage, () => {
-      setTimeout(() => {
-        if (reloadPage.value === true) {
-          getData<CommentType[]>("http://localhost:3000/comments").then(data => {
-            comments.value = data
+      if (reloadPage.value === true) {
+        setTimeout(() => {
+          getData<CommentType[]>("https://interactive-comment-sectionn.herokuapp.com/comments").then(data => {
+          comments.value = data
           })
-          getData<CommentType[]>("http://localhost:3000/replies").then(data => {
+          getData<CommentType[]>("https://interactive-comment-sectionn.herokuapp.com/replies").then(data => {
             replies.value = data        
           })
-          getData<User>("http://localhost:3000/currentUser").then(data => {
+          getData<User>("https://interactive-comment-sectionn.herokuapp.com/currentUser").then(data => {
             user.value = data
           })
           alternateReloadPage(false)
+        }, 1000)
         }
-      }, 600)
     })
 
     const comments = ref<CommentType[]>([])
@@ -42,13 +42,13 @@ export default defineComponent({
     const user = ref<User>()  
     var getUpatedData = ref<boolean>(false);
     onMounted(() => {
-        getData<CommentType[]>("http://localhost:3000/comments").then(data => {
+        getData<CommentType[]>("https://interactive-comment-sectionn.herokuapp.com/comments").then(data => {
           comments.value = data
         })
-        getData<CommentType[]>("http://localhost:3000/replies").then(data => {
+        getData<CommentType[]>("https://interactive-comment-sectionn.herokuapp.com/replies").then(data => {
           replies.value = data        
         })
-        getData<User>("http://localhost:3000/currentUser").then(data => {
+        getData<User>("https://interactive-comment-sectionn.herokuapp.com/currentUser").then(data => {
           user.value = data
         })
       })
@@ -56,28 +56,3 @@ export default defineComponent({
   }
 })
 </script>
-
-
-<style lang="scss">
-
-</style>
-
-function $reloadPage($reloadPage: any) {
-  throw new Error('Function not implemented.');
-}
-
-function reloadPage(reloadPage: any) {
-  throw new Error('Function not implemented.');
-}
-
-function forceUpdate() {
-  throw new Error('Function not implemented.');
-}
-
-function forceUpdate() {
-  throw new Error('Function not implemented.');
-}
-
-function forceUpdate() {
-  throw new Error('Function not implemented.');
-}

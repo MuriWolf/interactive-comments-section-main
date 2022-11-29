@@ -1,3 +1,0 @@
-{
-    "/comments/:commentId/replies/:replyId": "replies/:id"
-  }

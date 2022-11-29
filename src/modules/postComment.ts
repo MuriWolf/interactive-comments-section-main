@@ -11,16 +11,16 @@ function getLastId( array: CommentType[], newId: number): number {
 }
 
 function postComment(idComment: number, commentContent: string, url: string, comments?: CommentType[], replyingTo?: boolean | string ): boolean {
-  getData<User>("http://localhost:3000/currentUser").then(data => {
+  getData<User>("https://interactive-comment-sectionn.herokuapp.com/currentUser").then(data => {
     const currentUser: User = data;
-    getData<CommentType[]>("http://localhost:3000/replies").then(data => {
+    getData<CommentType[]>("https://interactive-comment-sectionn.herokuapp.com/replies").then(data => {
       let newId = data[data.length - 1].id;
       newId = getLastId(data, newId);
-      getData<CommentType[]>("http://localhost:3000/comments").then(data => {
+      getData<CommentType[]>("https://interactive-comment-sectionn.herokuapp.com/comments").then(data => {
         newId = getLastId(data, newId);
         newId++;
         if(replyingTo && idComment) {
-          fetch("http://localhost:3000" + url, {
+          fetch("https://interactive-comment-sectionn.herokuapp.com" + url, {
             method: 'POST',
             headers: {
               'Accept': 'application/json, text/plain, */*',
@@ -35,9 +35,11 @@ function postComment(idComment: number, commentContent: string, url: string, com
               replyingTo: replyingTo,
               user: currentUser,
             })
-          }).then(res => res.json());
+          }).finally(() => {
+            return true
+          })
         } else {
-          fetch("http://localhost:3000" + url, {
+          fetch("https://interactive-comment-sectionn.herokuapp.com" + url, {
             method: 'POST',
             headers: {
               'Accept': 'application/json, text/plain, */*',
@@ -50,7 +52,9 @@ function postComment(idComment: number, commentContent: string, url: string, com
               score: 0,
               user: currentUser,
             })
-          }).then(res => res.json())
+          }).finally(() => {
+            return true
+          })
         }
       })
     })

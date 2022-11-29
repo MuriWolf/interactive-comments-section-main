@@ -1,5 +1,5 @@
 function deleteComment(url: string): boolean {
-    fetch(`http://localhost:3000/${url}`,{
+    fetch(`https://interactive-comment-sectionn.herokuapp.com/${url}`,{
         method:'DELETE'
     }).then(response=>{
         return response.json()
