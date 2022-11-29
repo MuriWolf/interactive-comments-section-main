@@ -33,7 +33,7 @@ export default defineComponent({
             user.value = data
           })
           alternateReloadPage(false)
-        }, 1000)
+        }, 1750)
         }
     })
 
